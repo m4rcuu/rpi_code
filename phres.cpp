@@ -11,6 +11,7 @@ Phres::Phres(const int _ledPin, const int _phresChanel, ADC *_adc) : ledPin(_led
 Phres::~Phres()
 {
     this->ledOff();
+    delete adc;
 }
 
 void Phres::update()
