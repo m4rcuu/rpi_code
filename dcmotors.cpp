@@ -33,7 +33,7 @@ void DcMotors::motor2init()
 
 void DcMotors::ride(const int _chanel, const int _pwm)
 {
-    softPwmWrite(_chanel, _pwm)
+    softPwmWrite(_chanel, _pwm);
 }
 
 void DcMotors::changeStateM1(bool _chanel1, bool _chanel2)
