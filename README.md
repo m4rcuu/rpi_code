@@ -1,3 +1,11 @@
+# Użycie
+1. cd/home/pi/
+2. git clone https://github.com/m4rcuu/rpi_code.git
+3. cd rpi_code/
+4. chmod u+x zbuild.sh
+5. ./zbuild.sh
+
+# Źródła
 DC Motors:
 https://www.instructables.com/DC-Motor-Control-With-Raspberry-Pi-and-L293D/
 https://forbot.pl/blog/kurs-arduino-sterowanie-silnikami-dc-petla-for-id8311
