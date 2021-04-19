@@ -7,6 +7,6 @@ private:
     int spi_chan;
 
 public:
-    ADC(int _base, int _spi_chan);
+    ADC(const int _base, const int _spi_chan);
     const int getAnalog(const int _chanel);
 };

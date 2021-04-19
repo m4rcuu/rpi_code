@@ -2,12 +2,13 @@
 #include <wiringPi.h>
 #include <softPwm.h>
 
-DcMotors::DcMotors(int _input1, int _input2, int _input3, int _input4, int _enable1, int _enable2) : input1(_input1),
-                                                                                                     input2(_input2),
-                                                                                                     input3(_input3),
-                                                                                                     input4(_input4),
-                                                                                                     enable1(_enable1),
-                                                                                                     enable2(_enable2)
+DcMotors::DcMotors(const int _input1, const int _input2, const int _input3,
+                   const int _input4, const int _enable1, const int _enable2) : input1(_input1),
+                                                                                input2(_input2),
+                                                                                input3(_input3),
+                                                                                input4(_input4),
+                                                                                enable1(_enable1),
+                                                                                enable2(_enable2)
 {
     this->motor1init();
     this->motor2init();
