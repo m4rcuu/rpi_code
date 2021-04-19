@@ -18,5 +18,5 @@ void Buzzer::play()
 
 void Buzzer::stop()
 {
-    digitalWrite(pin, LOW)
+    digitalWrite(pin, LOW);
 }
