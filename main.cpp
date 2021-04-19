@@ -32,7 +32,7 @@ int main()
                 motors.breaking();
                 break;
             case 'r':
-                adc.getAnalog(4);
+                std::cout << adc.getAnalog(4) << "\n";
                 break;
             default:
                 std::cout << "key unknown\n";
