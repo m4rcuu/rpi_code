@@ -1,6 +1,7 @@
 #include "inc/cmanipulation.hpp"
 #include "inc/adc.hpp"
 #include "inc/dcmotors.hpp"
+#include <wiringPi.h>
 #include <iostream>
 
 int main()
@@ -28,7 +29,7 @@ int main()
                 motors.goBack(50);
                 break;
             case 'b':
-                motors.breaking()
+                motors.breaking();
                 break;
             default:
                 std::cout << "key unknown\n";
