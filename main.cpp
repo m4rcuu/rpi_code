@@ -31,6 +31,9 @@ int main()
             case 'b':
                 motors.breaking();
                 break;
+            case 'r':
+                adc.getAnalog(4);
+                break;
             default:
                 std::cout << "key unknown\n";
                 break;

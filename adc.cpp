@@ -11,5 +11,5 @@ ADC::ADC(int _base, int _spi_chan) : base(_base),
 
 const int ADC::getAnalog(const int _chanel)
 {
-    return analogRead(base + _chanel);
+    return analogRead(base + _chanel - 1);
 }
