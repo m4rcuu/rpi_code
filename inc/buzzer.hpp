@@ -4,10 +4,10 @@ class Buzzer
 {
 private:
     int pin;
-    ~Buzzer();
 
 public:
     Buzzer(const int _pin);
+    ~Buzzer();
     void play();
     void stop();
 };

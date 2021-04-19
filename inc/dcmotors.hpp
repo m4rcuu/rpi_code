@@ -14,10 +14,10 @@ private:
     void ride(const int _chanel, const int _pwm);
     void changeStateM1(const bool _chanel1, const bool _chanel2);
     void changeStateM2(const bool _chanel1, const bool _chanel2);
-    ~DcMotors();
 
 public:
     DcMotors(const int _input1, const int _input2, const int _input3, const int _input4, const int _enable1, const int _enable2);
+    ~DcMotors();
     void goStraight(const int _pwm);
     void goBack(const int _pwm);
     void turnRightInPlace(const int _pwm);
