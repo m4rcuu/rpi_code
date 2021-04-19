@@ -12,7 +12,7 @@ private:
     void ledOff();
 
 public:
-    Phres(const int _ledPin, const int _phresChanel, const ADC *_adc);
+    Phres(const int _ledPin, const int _phresChanel, ADC *_adc);
     ~Phres();
     void update();
 };

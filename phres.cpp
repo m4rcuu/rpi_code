@@ -1,7 +1,7 @@
 #include "inc/phres.hpp"
 #include <wiringPi.h>
 
-Phres::Phres(const int _ledPin, const int _phresChanel, const ADC *_adc) : ledPin(_ledPin),
+Phres::Phres(const int _ledPin, const int _phresChanel, ADC *_adc) : ledPin(_ledPin),
                                                                            phresChanel(_phresChanel),
                                                                            adc(_adc)
 {
