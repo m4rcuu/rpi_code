@@ -2,6 +2,7 @@
 #include "inc/adc.hpp"
 #include "inc/dcmotors.hpp"
 #include "inc/buzzer.hpp"
+#include "inc/phres.hpp"
 #include <wiringPi.h>
 #include <iostream>
 
@@ -12,6 +13,7 @@ int main()
 
     DcMotors motors(8, 9, 0, 2, 7, 3);
     ADC adc(100, 0);
+    Phres phres(4, 4, &adc);
     Buzzer buzzer(1);
     buzzer.play();
     delay(2000);
@@ -21,6 +23,7 @@ int main()
 
     while (c != 27)
     {
+        phres.update();
         if (kbhit())
         {
             c = getchar();
