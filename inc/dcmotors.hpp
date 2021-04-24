@@ -20,8 +20,8 @@ public:
     ~DcMotors();
     void goStraight(const int _pwm);
     void goBack(const int _pwm);
-    void turnRightInPlace(const int _pwm);
-    void turnLeftInPlace(const int _pwm);
+    void rotateRight(const int _pwm);
+    void rotateLeft(const int _pwm);
     void turnRight(const int _pwm);
     void turnLeft(const int _pwm);
     void breaking();

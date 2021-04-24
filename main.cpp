@@ -3,6 +3,7 @@
 #include "inc/dcmotors.hpp"
 #include "inc/buzzer.hpp"
 #include "inc/phres.hpp"
+#include "inc/servo.hpp"
 #include <wiringPi.h>
 #include <iostream>
 
@@ -11,14 +12,19 @@ int main()
     echoOff();
     wiringPiSetup();
 
+    //peripheral initialization
     DcMotors motors(8, 9, 0, 2, 7, 3);
     ADC adc(100, 0);
+    Servo servo(30, 50);
     Phres phres(4, 4, &adc);
     Buzzer buzzer(1);
+
+    //sound signal
     buzzer.play();
     delay(2000);
     buzzer.stop();
 
+    //program loop
     int c = '\0';
 
     while (c != 27)
@@ -43,10 +49,10 @@ int main()
                 motors.turnRight(50);
                 break;
             case 'q':
-                motors.turnLeftInPlace(50);
+                motors.rotateLeft(50);
                 break;
             case 'e':
-                motors.turnRightInPlace(50);
+                motors.rotateRight(50);
                 break;
             case 'b':
                 motors.breaking();
@@ -56,6 +62,12 @@ int main()
                 break;
             case 'r':
                 std::cout << adc.getAnalog(4) << "\n";
+                break;
+            case 'k':
+                servo.rotate(-10);
+                break;
+            case 'l':
+                servo.rotate(10);
                 break;
             default:
                 std::cout << "key unknown\n";

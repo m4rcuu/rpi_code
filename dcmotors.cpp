@@ -65,7 +65,7 @@ void DcMotors::goBack(const int _pwm)
     this->ride(enable2, _pwm);
 }
 
-void DcMotors::turnRightInPlace(const int _pwm)
+void DcMotors::rotateRight(const int _pwm)
 {
     this->changeStateM1(0, 1);
     this->changeStateM2(1, 0);
@@ -73,7 +73,7 @@ void DcMotors::turnRightInPlace(const int _pwm)
     this->ride(enable2, _pwm);
 }
 
-void DcMotors::turnLeftInPlace(const int _pwm)
+void DcMotors::rotateLeft(const int _pwm)
 {
     this->changeStateM1(1, 0);
     this->changeStateM2(0, 1);
