@@ -15,7 +15,7 @@ int main()
     //peripheral initialization
     DcMotors motors(8, 9, 0, 2, 7, 3);
     ADC adc(100, 0);
-    Servo servo(5, 50);
+    Servo servo(5, 15);
     Phres phres(4, 4, &adc);
     Buzzer buzzer(1);
 
@@ -64,11 +64,11 @@ int main()
                 std::cout << adc.getAnalog(4) << "\n";
                 break;
             case 'k':
-                servo.rotate(-5);
+                servo.rotate(-1);
                 std::cout << servo.getRotation() << "\n";
                 break;
             case 'l':
-                servo.rotate(5);
+                servo.rotate(1);
                 std::cout << servo.getRotation() << "\n";
                 break;
             default:

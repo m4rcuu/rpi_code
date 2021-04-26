@@ -5,26 +5,26 @@
 Servo::Servo(const int _pinPWM, const int _rotation) : pinPWM(_pinPWM),
                                                        rotation(_rotation)
 {
-    softPwmCreate(pinPWM, 0, 100);
+    softPwmCreate(pinPWM, 0, 30);
     softPwmWrite(pinPWM, rotation);
 }
 
 Servo::~Servo()
 {
-    softPwmWrite(pinPWM, 50);
+    softPwmWrite(pinPWM, 15);
 }
 
 void Servo::rotate(const int _rotation)
 {
     rotation += _rotation;
 
-    if (rotation < 0)
+    if (rotation < 1)
     {
-        rotation = 0;
+        rotation = 1;
     }
-    else if (rotation > 100)
+    else if (rotation > 29)
     {
-        rotation = 100;
+        rotation = 29;
     }
 
     softPwmWrite(pinPWM, rotation);
