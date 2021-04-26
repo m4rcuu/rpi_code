@@ -29,3 +29,8 @@ void Servo::rotate(const int _rotation)
 
     softPwmWrite(pinPWM, rotation);
 }
+
+const int Servo::getRotation()
+{
+    return rotation;
+}
