@@ -61,15 +61,18 @@ int main()
                 motors.instantBreaking();
                 break;
             case 'r':
-                std::cout << adc.getAnalog(4) << "\n";
+                std::cout << "ADC 1: " << adc.getAnalog(1) << "\n";
+                std::cout << "ADC 2: " << adc.getAnalog(2) << "\n";
+                std::cout << "ADC 3: " << adc.getAnalog(3) << "\n";
+                std::cout << "ADC 4: " << adc.getAnalog(4) << "\n";
                 break;
             case 'k':
                 servo.rotate(-1);
-                std::cout << servo.getRotation() << "\n";
+                //std::cout << servo.getRotation() << "\n";
                 break;
             case 'l':
                 servo.rotate(1);
-                std::cout << servo.getRotation() << "\n";
+                //std::cout << servo.getRotation() << "\n";
                 break;
             default:
                 std::cout << "key unknown\n";
