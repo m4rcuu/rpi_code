@@ -64,11 +64,11 @@ int main()
                 std::cout << adc.getAnalog(4) << "\n";
                 break;
             case 'k':
-                servo.rotate(-10);
+                servo.rotate(-5);
                 std::cout << servo.getRotation() << "\n";
                 break;
             case 'l':
-                servo.rotate(10);
+                servo.rotate(5);
                 std::cout << servo.getRotation() << "\n";
                 break;
             default:
