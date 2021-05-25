@@ -16,3 +16,6 @@ https://www.raspberrypi.org/forums/viewtopic.php?t=20070
 MPC3008 SPI:
 http://www.noveldevices.co.uk/rp-mcp3008
 https://www.raspberrypi.org/forums/viewtopic.php?t=54366
+
+HC-SR04
+https://github.com/OmarAflak/HC-SR04-Raspberry-Pi-C-

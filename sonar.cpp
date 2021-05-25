@@ -25,7 +25,7 @@ void Sonar::recordPulseLength()
     endTimeUsec = micros();
 }
 
-double Sonar::getDistance(const int _timeout = 3000)
+double Sonar::getDistance(const int _timeout)
 {
     delay(10);
 
