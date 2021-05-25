@@ -61,7 +61,7 @@ int main()
             {
             case 'w':
                 motors.goStraight(50);
-                while (getchar() == 'w')
+                while (kbhit() && getchar() == 'w')
                 {
                     std::cout << "W " << std::endl;
                 }
