@@ -63,7 +63,8 @@ int main()
                 motors.goStraight(50);
                 while (kbhit())
                 {
-                    if (getchar() == 'w')
+                    c = getchar();
+                    if (c == 'w')
                     {
                         std::cout << "W " << std::endl;
                     }
