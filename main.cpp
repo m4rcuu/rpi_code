@@ -5,6 +5,7 @@
 #include "inc/phres.hpp"
 #include "inc/servo.hpp"
 #include "inc/sonar.hpp"
+#include "inc/hall.hpp"
 #include <wiringPi.h>
 #include <iostream>
 
@@ -19,6 +20,7 @@ int main()
     Servo servo(5, 15);
     Phres phres(15, 4, &adc);
     Sonar sonar(28, 29);
+    Hall hall(1);
     Buzzer buzzer(1);
 
     //sound signal
@@ -32,7 +34,8 @@ int main()
     while (c != 27)
     {
         phres.update();
-        std::cout << sonar.getDistance() << std::endl;
+        //std::cout << sonar.getDistance() << std::endl;
+        std::cout << hall.getValue() << std::endl;
         if (kbhit())
         {
             c = getchar();
@@ -80,7 +83,7 @@ int main()
                 break;
             }
 
-            std::cout << "got key " << c << "\n";
+            //std::cout << "got key " << c << "\n";
         }
     }
     echoOn();
