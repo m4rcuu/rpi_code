@@ -4,6 +4,7 @@
 #include "inc/buzzer.hpp"
 #include "inc/phres.hpp"
 #include "inc/servo.hpp"
+#include "inc/sonar.hpp"
 #include <wiringPi.h>
 #include <iostream>
 
@@ -16,7 +17,8 @@ int main()
     DcMotors motors(8, 9, 0, 2, 7, 3);
     ADC adc(100, 0);
     Servo servo(5, 15);
-    Phres phres(4, 4, &adc);
+    Phres phres(15, 4, &adc);
+    Sonar sonar(28, 29);
     Buzzer buzzer(1);
 
     //sound signal
@@ -30,6 +32,7 @@ int main()
     while (c != 27)
     {
         phres.update();
+        std::cout << sonar.getDistance() << std::endl;
         if (kbhit())
         {
             c = getchar();
@@ -68,11 +71,9 @@ int main()
                 break;
             case 'k':
                 servo.rotate(-1);
-                //std::cout << servo.getRotation() << "\n";
                 break;
             case 'l':
                 servo.rotate(1);
-                //std::cout << servo.getRotation() << "\n";
                 break;
             default:
                 std::cout << "key unknown\n";

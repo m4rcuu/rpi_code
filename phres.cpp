@@ -2,8 +2,8 @@
 #include <wiringPi.h>
 
 Phres::Phres(const int _ledPin, const int _phresChanel, ADC *_adc) : ledPin(_ledPin),
-                                                                           phresChanel(_phresChanel),
-                                                                           adc(_adc)
+                                                                     phresChanel(_phresChanel),
+                                                                     adc(_adc)
 {
     pinMode(ledPin, OUTPUT);
 }
