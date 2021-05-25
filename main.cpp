@@ -61,9 +61,12 @@ int main()
             {
             case 'w':
                 motors.goStraight(50);
-                while (kbhit() && getchar() == 'w')
+                while (kbhit())
                 {
-                    std::cout << "W " << std::endl;
+                    if (getchar() == 'w')
+                    {
+                        std::cout << "W " << std::endl;
+                    }
                 }
                 std::cout << "END" << std::endl;
                 motors.breaking();
