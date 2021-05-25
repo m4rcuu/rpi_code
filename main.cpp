@@ -20,7 +20,7 @@ int main()
     Servo servo(5, 15);
     Phres phres(15, 4, &adc);
     Sonar sonar(28, 29);
-    Hall hall(1);
+    Hall hall(1, &adc);
     Buzzer buzzer(1);
 
     //sound signal
