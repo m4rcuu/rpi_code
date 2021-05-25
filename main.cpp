@@ -61,43 +61,27 @@ int main()
             {
             case 'w':
                 motors.goStraight(50);
-                int a = 0;
                 while (getchar() == 'w')
                 {
-                    std::cout << "W " << ++a << std::endl;
+                    std::cout << "W " << std::endl;
                 }
                 std::cout << "END" << std::endl;
                 motors.breaking();
                 break;
             case 's':
                 motors.goBack(50);
-                while (getchar() == 's')
-                    ;
-                motors.breaking();
                 break;
             case 'a':
                 motors.turnLeft(50);
-                while (getchar() == 'a')
-                    ;
-                motors.breaking();
                 break;
             case 'd':
                 motors.turnRight(50);
-                while (getchar() == 'd')
-                    ;
-                motors.breaking();
                 break;
             case 'q':
                 motors.rotateLeft(50);
-                while (getchar() == 'q')
-                    ;
-                motors.breaking();
                 break;
             case 'e':
                 motors.rotateRight(50);
-                while (getchar() == 'e')
-                    ;
-                motors.breaking();
                 break;
             case 'b':
                 motors.breaking();
