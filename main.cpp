@@ -61,31 +61,82 @@ int main()
             {
             case 'w':
                 motors.goStraight(50);
+                delay(40);
                 while (kbhit())
                 {
                     c = getchar();
-                    if (c == 'w')
+                    if (c != 'w')
                     {
-                        std::cout << "W " << std::endl;
+                        break;
                     }
+                    delay(40);
                 }
-                std::cout << "END" << std::endl;
                 motors.breaking();
                 break;
             case 's':
                 motors.goBack(50);
+                delay(40);
+                while (kbhit())
+                {
+                    c = getchar();
+                    if (c != 's')
+                    {
+                        break;
+                    }
+                    delay(40);
+                }
                 break;
             case 'a':
                 motors.turnLeft(50);
+                delay(40);
+                while (kbhit())
+                {
+                    c = getchar();
+                    if (c != 'a')
+                    {
+                        break;
+                    }
+                    delay(40);
+                }
                 break;
             case 'd':
                 motors.turnRight(50);
+                delay(40);
+                while (kbhit())
+                {
+                    c = getchar();
+                    if (c != 'd')
+                    {
+                        break;
+                    }
+                    delay(40);
+                }
                 break;
             case 'q':
                 motors.rotateLeft(50);
+                delay(40);
+                while (kbhit())
+                {
+                    c = getchar();
+                    if (c != 'q')
+                    {
+                        break;
+                    }
+                    delay(40);
+                }
                 break;
             case 'e':
                 motors.rotateRight(50);
+                delay(40);
+                while (kbhit())
+                {
+                    c = getchar();
+                    if (c != 'e')
+                    {
+                        break;
+                    }
+                    delay(40);
+                }
                 break;
             case 'b':
                 motors.breaking();
@@ -107,6 +158,9 @@ int main()
                 break;
             case 'l':
                 servo.rotate(1);
+                break;
+            case 'c':
+                system("clear");
                 break;
             default:
                 std::cout << "key unknown\n";
