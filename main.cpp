@@ -37,10 +37,22 @@ int main()
     while (c != 27)
     {
         phres.update();
+
+        // TA PETLA POWINNA DZIALAC
+        // NIEZBEDNE JEST DOBRE PODLACZENIE ULTRADZWIEKOW
+        // if(sonar.getDistance()<15.0)
+        // {
+        //     motors.instantBreaking();
+        //     motors.goBack(50);
+        //     delay(1000);
+        //     motors.breaking();
+        // }
+
         //std::cout << sonar.getDistance() << std::endl;
         //std::cout << hall.getValue() << std::endl;
         //std::cout << reflect1.getValue() << std::endl;
         //std::cout << reflect2.getValue() << std::endl;
+
         if (kbhit())
         {
             c = getchar();
@@ -49,21 +61,43 @@ int main()
             {
             case 'w':
                 motors.goStraight(50);
+                int a = 0;
+                while (getchar() == 'w')
+                {
+                    std::cout << "W " << ++a << std::endl;
+                }
+                std::cout << "END" << std::endl;
+                motors.breaking();
                 break;
             case 's':
                 motors.goBack(50);
+                while (getchar() == 's')
+                    ;
+                motors.breaking();
                 break;
             case 'a':
                 motors.turnLeft(50);
+                while (getchar() == 'a')
+                    ;
+                motors.breaking();
                 break;
             case 'd':
                 motors.turnRight(50);
+                while (getchar() == 'd')
+                    ;
+                motors.breaking();
                 break;
             case 'q':
                 motors.rotateLeft(50);
+                while (getchar() == 'q')
+                    ;
+                motors.breaking();
                 break;
             case 'e':
                 motors.rotateRight(50);
+                while (getchar() == 'e')
+                    ;
+                motors.breaking();
                 break;
             case 'b':
                 motors.breaking();
@@ -79,6 +113,7 @@ int main()
                 break;
             case 't':
                 std::cout << sonar.getDistance() << " cm to the obstacle" << std::endl;
+                break;
             case 'k':
                 servo.rotate(-1);
                 break;
