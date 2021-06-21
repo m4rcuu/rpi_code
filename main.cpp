@@ -16,15 +16,15 @@ int main()
     wiringPiSetup();
 
     //peripheral initialization
-    DcMotors motors(8, 9, 0, 2, 7, 3);
+    DcMotors motors(0, 2, 9, 8, 7, 3);
     ADC adc(100, 0);
-    Servo servo(5, 15);
-    Phres phres(15, 4, &adc);
+    Servo servo(21, 15);
+    Phres phres(15, 1, &adc);
     Sonar sonar(28, 29);
-    Hall hall(1, &adc);
-    Reflect reflect1(2, &adc);
-    Reflect reflect2(3, &adc);
-    Buzzer buzzer(1);
+    Hall hall(2, &adc);
+    Reflect reflect1(3, &adc);
+    Reflect reflect2(4, &adc);
+    Buzzer buzzer(22);
 
     //sound signal
     buzzer.play();
@@ -38,20 +38,19 @@ int main()
     {
         phres.update();
 
-        // TA PETLA POWINNA DZIALAC
-        // NIEZBEDNE JEST DOBRE PODLACZENIE ULTRADZWIEKOW
-        // if(sonar.getDistance()<15.0)
-        // {
-        //     motors.instantBreaking();
-        //     motors.goBack(50);
-        //     delay(1000);
-        //     motors.breaking();
-        // }
+        if(sonar.getDistance()<10.0)
+        {
+            motors.instantBreaking();
+            motors.goBack(50);
+            delay(1000);
+            motors.breaking();
+        }
 
-        //std::cout << sonar.getDistance() << std::endl;
-        //std::cout << hall.getValue() << std::endl;
-        //std::cout << reflect1.getValue() << std::endl;
-        //std::cout << reflect2.getValue() << std::endl;
+        // //printing sensor values
+        // std::cout << sonar.getDistance() << std::endl;
+        // std::cout << hall.getValue() << std::endl;
+        // std::cout << reflect1.getValue() << std::endl;
+        // std::cout << reflect2.getValue() << std::endl;
 
         if (kbhit())
         {
@@ -168,6 +167,8 @@ int main()
             }
 
             //std::cout << "got key " << c << "\n";
+
+            c = '\0';
         }
     }
     echoOn();
