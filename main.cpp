@@ -36,6 +36,7 @@ int main()
 
     while (c != 27)
     {
+        c = '\0';
         phres.update();
 
         if(sonar.getDistance()<10.0)
@@ -172,8 +173,6 @@ int main()
             }
 
             //std::cout << "got key " << c << "\n";
-
-            c = '\0';
         }
     }
     echoOn();
