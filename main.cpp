@@ -36,7 +36,6 @@ int main()
 
     while (c != 27)
     {
-        c = '\0';
         phres.update();
 
         if(sonar.getDistance()<10.0)
@@ -65,7 +64,7 @@ int main()
                 while (kbhit())
                 {
                     c = getchar();
-                    if (c != 'w')
+                    if (c != 'w' && !sonar.getDistance()<10.0)
                     {
                         break;
                     }
