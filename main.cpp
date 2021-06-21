@@ -84,6 +84,7 @@ int main()
                     }
                     delay(40);
                 }
+                motors.breaking();
                 break;
             case 'a':
                 motors.turnLeft(50);
@@ -97,6 +98,7 @@ int main()
                     }
                     delay(40);
                 }
+                motors.breaking();
                 break;
             case 'd':
                 motors.turnRight(50);
@@ -110,6 +112,7 @@ int main()
                     }
                     delay(40);
                 }
+                motors.breaking();
                 break;
             case 'q':
                 motors.rotateLeft(50);
@@ -123,6 +126,7 @@ int main()
                     }
                     delay(40);
                 }
+                motors.breaking();
                 break;
             case 'e':
                 motors.rotateRight(50);
@@ -136,6 +140,7 @@ int main()
                     }
                     delay(40);
                 }
+                motors.breaking();
                 break;
             case 'b':
                 motors.breaking();

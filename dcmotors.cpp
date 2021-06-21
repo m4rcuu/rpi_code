@@ -77,14 +77,14 @@ void DcMotors::rotateLeft(const int _pwm)
 
 void DcMotors::turnRight(const int _pwm)
 {
-    this->changeInputs(0, 1, 0, 0);
+    this->changeInputs(0, 1, 0, 1);
     this->ride(enable1, _pwm);
     this->ride(enable2, 0);
 }
 
 void DcMotors::turnLeft(const int _pwm)
 {
-    this->changeInputs(0, 0, 0, 1);
+    this->changeInputs(0, 1, 0, 1);
     this->ride(enable1, 0);
     this->ride(enable2, _pwm);
 }
