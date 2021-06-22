@@ -12,7 +12,8 @@
 
 int main()
 {
-    const int DISTANCE = 10;
+    const int DELAY = 20;
+    const int DISTANCE = 15;
     const int PWM_VALUE = 70;
 
     int c = '\0';
@@ -111,7 +112,7 @@ int main()
             }
 
             //std::cout << "got key " << c << "\n";
-            delay(20);
+            delay(DELAY);
         }
         if (!kbhit())
         {
