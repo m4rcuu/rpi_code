@@ -9,6 +9,7 @@
 #include "inc/reflect.hpp"
 #include <wiringPi.h>
 #include <iostream>
+#include <time.h>
 
 int main()
 {
@@ -36,6 +37,8 @@ int main()
     buzzer.play();
     delay(2000);
     buzzer.stop();
+
+    auto time = clock() / (CLOCKS_PER_SEC / 1000.0);
 
     //program loop
     while (c != 27)
@@ -120,6 +123,8 @@ int main()
         }
     }
     echoOn();
+
+    std::cout << time << " ms\n";
 
     return 0;
 }
