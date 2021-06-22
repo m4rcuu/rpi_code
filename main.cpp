@@ -9,7 +9,7 @@
 #include "inc/reflect.hpp"
 #include <wiringPi.h>
 #include <iostream>
-#include <time.h>
+#include <chrono>
 
 int main()
 {
@@ -38,7 +38,7 @@ int main()
     delay(2000);
     buzzer.stop();
 
-    auto time = clock() / (CLOCKS_PER_SEC / 1000.0);
+    std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
 
     //program loop
     while (c != 27)
@@ -122,9 +122,11 @@ int main()
             motors.breaking();
         }
     }
-    echoOn();
 
-    std::cout << time << " ms\n";
+    std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+    std::cout << "Time duration: " << std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count() << "[µs]\n";
+    
+    echoOn();
 
     return 0;
 }
