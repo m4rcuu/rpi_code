@@ -1,10 +1,10 @@
 # TO DO
-1. dostosowac kierunki silnikow
-2. dostosowac pwm silnikow
-3. prog odleglosci dla sonaru
-4. prog adc dla fotorezystora
-5. prog adc dla halla
-6. prog adc dla czujnikow odbiciowych
+1. ~~dostosowac kierunki silnikow~~
+2. ~~dostosowac pwm silnikow~~
+3. ~~prog odleglosci dla sonaru~~
+4. ~~prog adc dla fotorezystora~~
+5. ~~prog adc dla halla~~
+6. ~~prog adc dla czujnikow odbiciowych~~
 
 # Użycie
 1. cd/home/pi/

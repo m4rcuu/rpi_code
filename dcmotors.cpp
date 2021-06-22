@@ -50,14 +50,14 @@ void DcMotors::changeInputs(const bool _i1, const bool _i2, const bool _i3, cons
 void DcMotors::goStraight(const int _pwm)
 {
     this->changeInputs(0, 1, 0, 1);
-    this->ride(enable1, _pwm);
+    this->ride(enable1, _pwm + 10);
     this->ride(enable2, _pwm);
 }
 
 void DcMotors::goBack(const int _pwm)
 {
     this->changeInputs(1, 0, 1, 0);
-    this->ride(enable1, _pwm);
+    this->ride(enable1, _pwm + 10);
     this->ride(enable2, _pwm);
 }
 

@@ -15,7 +15,7 @@ Phres::~Phres()
 
 void Phres::update()
 {
-    if (adc->getAnalog(phresChanel) < 50)
+    if (adc->getAnalog(phresChanel) < 450)
     {
         this->ledOn();
     }

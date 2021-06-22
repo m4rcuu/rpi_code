@@ -12,6 +12,11 @@
 
 int main()
 {
+    const int DISTANCE = 10;
+    const int PWM_VALUE = 70;
+
+    int c = '\0';
+
     echoOff();
     wiringPiSetup();
 
@@ -32,19 +37,9 @@ int main()
     buzzer.stop();
 
     //program loop
-    int c = '\0';
-
     while (c != 27)
     {
         phres.update();
-
-        if(sonar.getDistance()<10.0)
-        {
-            motors.instantBreaking();
-            motors.goBack(50);
-            delay(1000);
-            motors.breaking();
-        }
 
         // //printing sensor values
         // std::cout << sonar.getDistance() << std::endl;
@@ -52,95 +47,39 @@ int main()
         // std::cout << reflect1.getValue() << std::endl;
         // std::cout << reflect2.getValue() << std::endl;
 
-        if (kbhit())
+        while (kbhit())
         {
+            //go back if there is obstacle
+            if (sonar.getDistance() < DISTANCE)
+            {
+                motors.instantBreaking();
+                motors.goBack(PWM_VALUE);
+                delay(300);
+                motors.breaking();
+            }
+
+            //pressed key
             c = getchar();
 
             switch (c)
             {
             case 'w':
-                motors.goStraight(50);
-                delay(40);
-                while (kbhit())
-                {
-                    c = getchar();
-                    if (c != 'w' && !sonar.getDistance()<10.0)
-                    {
-                        break;
-                    }
-                    delay(40);
-                }
-                motors.breaking();
+                motors.goStraight(PWM_VALUE);
                 break;
             case 's':
-                motors.goBack(50);
-                delay(40);
-                while (kbhit())
-                {
-                    c = getchar();
-                    if (c != 's')
-                    {
-                        break;
-                    }
-                    delay(40);
-                }
-                motors.breaking();
+                motors.goBack(PWM_VALUE);
                 break;
             case 'a':
-                motors.turnLeft(50);
-                delay(40);
-                while (kbhit())
-                {
-                    c = getchar();
-                    if (c != 'a')
-                    {
-                        break;
-                    }
-                    delay(40);
-                }
-                motors.breaking();
+                motors.turnLeft(PWM_VALUE);
                 break;
             case 'd':
-                motors.turnRight(50);
-                delay(40);
-                while (kbhit())
-                {
-                    c = getchar();
-                    if (c != 'd')
-                    {
-                        break;
-                    }
-                    delay(40);
-                }
-                motors.breaking();
+                motors.turnRight(PWM_VALUE);
                 break;
             case 'q':
-                motors.rotateLeft(50);
-                delay(40);
-                while (kbhit())
-                {
-                    c = getchar();
-                    if (c != 'q')
-                    {
-                        break;
-                    }
-                    delay(40);
-                }
-                motors.breaking();
+                motors.rotateLeft(PWM_VALUE);
                 break;
             case 'e':
-                motors.rotateRight(50);
-                delay(40);
-                while (kbhit())
-                {
-                    c = getchar();
-                    if (c != 'e')
-                    {
-                        break;
-                    }
-                    delay(40);
-                }
-                motors.breaking();
+                motors.rotateRight(PWM_VALUE);
                 break;
             case 'b':
                 motors.breaking();
@@ -172,6 +111,11 @@ int main()
             }
 
             //std::cout << "got key " << c << "\n";
+            delay(20);
+        }
+        if (!kbhit())
+        {
+            motors.breaking();
         }
     }
     echoOn();
