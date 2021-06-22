@@ -10,8 +10,8 @@
 1. cd/home/pi/
 2. git clone https://github.com/m4rcuu/rpi_code.git
 3. cd rpi_code/
-4. chmod u+x zbuild.sh
-5. ./zbuild.sh
+4. chmod u+x zprogram.sh
+5. ./zprogram.sh
 
 # Źródła
 DC Motors:
